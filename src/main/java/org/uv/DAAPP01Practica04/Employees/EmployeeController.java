@@ -35,7 +35,7 @@ public class EmployeeController {
     @Transactional
     public ResponseEntity<Employee> create(@RequestBody Employee employee){
         employeeRepository.save(employee);
-        logger.info(STR."Employee created: \{employee.toString()}");
+        logger.info("Employee created: " + employee.toString());
         return ResponseEntity.ok(employee);
     }
 
@@ -50,7 +50,7 @@ public class EmployeeController {
         employee.setKey(id);
 
         employeeRepository.save(employee);
-        logger.info(STR."Employee updated: \{employee.toString()}");
+        logger.info("Employee updated: " + employee.toString());
         return ResponseEntity.ok(employee);
     }
 
@@ -63,7 +63,7 @@ public class EmployeeController {
             return ResponseEntity.notFound().build();
 
         employeeRepository.deleteById(id);
-        logger.info(STR."Employee deleted with ID: \{id}");
+        logger.info("Employee deleted with ID: " + id);
         return ResponseEntity.ok().build();
     }
 }
